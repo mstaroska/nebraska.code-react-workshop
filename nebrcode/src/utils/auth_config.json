@@ -1,0 +1,7 @@
+{
+    "domain": "dev-suwba5ny.auth0.com",
+    "clientID": "DGIVDUp3H6JAgbPodsnVXRRWvwONl3u0",
+    "redirectUri" : "http://localhost:3000/callback",
+    "responseType" : "token id_token",
+    "scope": "openid profile"
+  }

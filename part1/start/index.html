@@ -10,5 +10,52 @@
 <script src="./js/react.js"></script>
 <script src="./js/react-dom.js"></script>
 
+<script>
+
+let state = {
+    count: 0,
+    actions: {
+        incrementCounter: function() {
+            setState({count: state.count + 1})
+        },
+        decrementCounter: function() {
+            setState({count: state.count - 1})
+        }
+    }
+}
+
+let Counter = React.createClass({
+    handleIncrement: function() {
+        state.actions.incrementCounter();
+    },
+    handleDecrement: function() {
+        state.actions.decrementCounter();
+    },
+    render: function() {
+        return(
+            React.createElement("div", {}, 
+                React.createElement("h1", {}, "The Counter"),
+                React.createElement("div", {}, 
+                    React.createElement("button", {onClick: this.handleIncrement}, "+"),
+                    React.createElement("span", {}, state.count),
+                    React.createElement("button", {onClick: this.handleDecrement}, "-")
+                )
+            )
+        )
+    }
+});
+
+let setState = (changes) => {
+    state = Object.assign({}, state, changes);
+    ReactDOM.render(
+        React.createElement(Counter, {}), 
+        document.querySelector("#app")
+    );
+}
+
+setState({count: 1});
+
+</script>
+
 </body>
 </html>
